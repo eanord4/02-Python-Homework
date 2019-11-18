@@ -74,7 +74,7 @@ def print_and_write(*args, end='\n', sep=' '):
 if __name__ == '__main__':
 
     print()
-    now = dt.datetime.now()
+    now = dt.datetime.now()  # save timestamp in case script to be run multiple times
 
     with open(budget_data_path, 'r') as in_file:
 
@@ -149,8 +149,10 @@ if __name__ == '__main__':
         print_and_write('~~~ FINANCIAL ANALYSIS ~~~')
         print_and_write('Net profit:', net_profit)
         print_and_write('Average monthly profit:', round(net_profit / total_months, 2))
-        print_and_write('Maximum monthly profit:', month_abbreviations[max_profit_month.month] + str(max_profit_month.year), round(max_profit, 2), sep='\t')
-        print_and_write('Minimum monthly profit:', month_abbreviations[min_profit_month.month] + str(min_profit_month.year), round(min_profit, 2), sep='\t')
+        display_max_profit_month = ' '.join((month_abbreviations[max_profit_month.month], str(max_profit_month.year)))
+        display_min_profit_month = ' '.join((month_abbreviations[min_profit_month.month], str(min_profit_month.year)))
+        print_and_write(f'Maximum monthly profit: {round(max_profit, 2)} ({display_max_profit_month})')
+        print_and_write(f'Minimum monthly profit: {round(min_profit, 2)} ({display_min_profit_month})')
 
 
         write_like_print()
