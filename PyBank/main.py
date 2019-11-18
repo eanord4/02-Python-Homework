@@ -1,10 +1,12 @@
 # Eric Nordstrom
 # November 18, 2019
-# Second homework assignment for UT Data Analysis & Visualization boot camp
+# second homework assignment for UT Data Analysis & Visualization boot camp
 # Python 3.6.4
 
 
-import csv
+import csv, sys
+sys.path.insert(1, '..')  # for next import
+import print_and_write as paw
 import datetime as dt
 
 
@@ -61,26 +63,13 @@ def months_difference(first_date, last_date):
 
     return last_date.month - first_date.month + 12 * (last_date.year - first_date.year)
 
-def write_like_print(*args, end='\n', sep=' '):
-    '''write_like_print(*args, end='\n', sep=' ') --> append to the output file as the print() function would print to the console'''
-
-    global out_file
-    out_file.write(sep.join(str(arg) for arg in args) + end)
-
-def print_and_write(*args, end='\n', sep=' '):
-    '''print_and_write(*args, end='\n', sep=' ') --> print and append to output file'''
-
-    global out_file
-    print(*args, end=end, sep=sep)
-    write_like_print(*args, end=end, sep=sep)
-
 
 """RUN"""
 
 if __name__ == '__main__':
 
     print()
-    now = dt.datetime.now()  # save timestamp in case script to be run multiple times
+    timestamp = dt.datetime.now()  # save timestamp in case script to be run multiple times
 
 
     # read and record info
@@ -135,36 +124,36 @@ if __name__ == '__main__':
     # write and print
 
     with open('output_file.txt', 'a') as out_file:
-
-        write_like_print(now)
-        write_like_print()
+        
+        paw.write_like_print(out_file, timestamp)
+        paw.write_like_print(out_file)
     
 
         ## MONTHS REPORT ##
 
-        print_and_write('~~~ DATASET OVERVIEW ~~~')  # gets its own section because it was not previously known whether any months would be missing between the first and the last
-        print_and_write('First month:', month_abbreviations[start_date.month], start_date.year)
-        print_and_write('Last month:', month_abbreviations[end_date.month], end_date.year)
-        print_and_write('Missing months:', len(missing_months))
+        paw.print_and_write(out_file, '~~~ DATASET OVERVIEW ~~~')  # gets its own section because it was not previously known whether any months would be missing between the first and the last
+        paw.print_and_write(out_file, 'First month:', month_abbreviations[start_date.month], start_date.year)
+        paw.print_and_write(out_file, 'Last month:', month_abbreviations[end_date.month], end_date.year)
+        paw.print_and_write(out_file, 'Missing months:', len(missing_months))
 
         for item in sorted(missing_months):
-            print_and_write('\t' + month_abbreviations[item.month], item.year)
+            paw.print_and_write(out_file, '\t' + month_abbreviations[item.month], item.year)
         
         total_months = months_difference(start_date, end_date) - len(missing_months) + 1
-        print_and_write('Total number of months:', total_months)
+        paw.print_and_write(out_file, 'Total number of months:', total_months)
 
 
         ## PROFIT REPORT ##
 
-        print_and_write()
-        print_and_write('~~~ FINANCIAL ANALYSIS ~~~')
-        print_and_write('Net profit:', net_profit)
-        print_and_write('Average monthly profit:', round(net_profit / total_months, 2))
+        paw.print_and_write(out_file)
+        paw.print_and_write(out_file, '~~~ FINANCIAL ANALYSIS ~~~')
+        paw.print_and_write(out_file, 'Net profit:', net_profit)
+        paw.print_and_write(out_file, 'Average monthly profit:', round(net_profit / total_months, 2))
         display_max_profit_month = ' '.join((month_abbreviations[max_profit_month.month], str(max_profit_month.year)))
         display_min_profit_month = ' '.join((month_abbreviations[min_profit_month.month], str(min_profit_month.year)))
-        print_and_write(f'Maximum monthly profit: {round(max_profit, 2)} ({display_max_profit_month})')
-        print_and_write(f'Minimum monthly profit: {round(min_profit, 2)} ({display_min_profit_month})')
+        paw.print_and_write(out_file, f'Maximum monthly profit: {round(max_profit, 2)} ({display_max_profit_month})')
+        paw.print_and_write(out_file, f'Minimum monthly profit: {round(min_profit, 2)} ({display_min_profit_month})')
 
 
-        write_like_print()
-        write_like_print()
+        paw.write_like_print(out_file)
+        paw.write_like_print(out_file)
