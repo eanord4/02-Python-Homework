@@ -1,3 +1,9 @@
+# Eric Nordstrom
+# November 18, 2019
+# Second homework assignment for UT Data Analysis & Visualization boot camp
+# Python 3.6.4
+
+
 import csv
 import datetime as dt
 
@@ -76,6 +82,9 @@ if __name__ == '__main__':
     print()
     now = dt.datetime.now()  # save timestamp in case script to be run multiple times
 
+
+    # read and record info
+
     with open(budget_data_path, 'r') as in_file:
 
         budget_data = csv.reader(in_file)
@@ -122,6 +131,8 @@ if __name__ == '__main__':
                 min_profit = new_profit
                 min_profit_month = new_date
     
+
+    # write and print
 
     with open('output_file.txt', 'a') as out_file:
 
