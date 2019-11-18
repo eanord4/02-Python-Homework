@@ -4,6 +4,7 @@
 # Python 3.6.4
 
 
+python_challenge_path = '..'  # assuming currently in python-challenge/PyBank
 import csv, sys
 sys.path.insert(1, '..')  # for next import
 import print_and_write as paw
@@ -89,11 +90,11 @@ if __name__ == '__main__':
         max_profit = min_profit = float(first_row[1])
         max_profit_month = min_profit_month = start_date
 
-        for line in budget_data:
+        for row in budget_data:
 
             ## UPDATE MONTHS ##
 
-            new_date = date(line[0])
+            new_date = date(row[0])
             diff = months_difference(end_date, new_date)
 
             if diff > 0:
@@ -110,7 +111,7 @@ if __name__ == '__main__':
 
             ## UPDATE PROFIT INFO ##
 
-            new_profit = float(line[1])
+            new_profit = float(row[1])
             net_profit += new_profit
 
             if new_profit > max_profit:
@@ -125,6 +126,7 @@ if __name__ == '__main__':
 
     with open('output_file.txt', 'a') as out_file:
         
+        global out_file
         paw.write_like_print(out_file, timestamp)
         paw.write_like_print(out_file)
     
