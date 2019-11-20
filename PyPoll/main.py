@@ -6,7 +6,8 @@
 
 python_challenge_path = 'C:/users/eanor.LORDSTROM/Dropbox/Documents/Education/Data Analysis & Viz Boot Camp/Homework/02-Python'  # path on my computer; replace with your path
 import csv, sys
-sys.path.insert(1, python_challenge_path)
+sys.path.insert(1, python_challenge_path)  # for next import: path on my computer; allows running from any directory
+sys.path.insert(2, '..')  # for next import: up one level if currently in PyPoll folder; allows running on any computer if in this folder
 import print_and_write as paw
 import datetime as dt
 
