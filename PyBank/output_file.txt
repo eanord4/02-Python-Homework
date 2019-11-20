@@ -28,22 +28,7 @@ Maximum monthly profit: 1170593.0 (Feb 2012)
 Minimum monthly profit: -1196225.0 (Sep 2013)
 
 
-2019-11-18 16:53:35.788116
-
-~~~ DATASET OVERVIEW ~~~
-First month: Jan 2010
-Last month: Feb 2017
-Missing months: 0
-Total number of months: 86
-
-~~~ FINANCIAL ANALYSIS ~~~
-Net profit: 37514694.0
-Average monthly profit: 436217.37
-Maximum monthly profit: 1170593.0 (Feb 2012)
-Minimum monthly profit: -1196225.0 (Sep 2013)
-
-
-2019-11-18 17:03:35.536053
+2019-11-20 13:39:24.493323
 
 ~~~ DATASET OVERVIEW ~~~
 First month: Jan 2010

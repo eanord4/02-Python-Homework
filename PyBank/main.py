@@ -4,16 +4,17 @@
 # Python 3.6.4
 
 
-python_challenge_path = '..'  # assuming currently in python-challenge/PyBank
+python_challenge_path = 'C:/users/eanor.LORDSTROM/Dropbox/Documents/Education/Data Analysis & Viz Boot Camp/Homework/02-Python'  # path on my computer; replace with your path
 import csv, sys
-sys.path.insert(1, '..')  # for next import
+sys.path.insert(1, python_challenge_path)  # for next import: path on my computer; allows running from any directory
+sys.path.insert(2, '..')  # for next import: up one level if currently in PyBank folder; allows running on any computer if in this folder
 import print_and_write as paw
 import datetime as dt
 
 
 """DATA"""
 
-budget_data_path = "..\\..\\..\\UT-MCB-DATA-PT-11-2019-U-C\\Homework\\02-Python\\Instructions\\PyBank\\Resources\\budget_data.csv"  # replace with your path to the budget_data.csv file
+budget_data_path = 'C:/users/eanor.LORDSTROM/Dropbox/Documents/Education/Data Analysis & Viz Boot Camp/UT-MCB-DATA-PT-11-2019-U-C/Homework/02-Python/Instructions/PyBank/Resources/budget_data.csv'  # path on my computer; replace with your path
 
 month_indices = {
     'Jan': 1,
@@ -126,7 +127,6 @@ if __name__ == '__main__':
 
     with open('output_file.txt', 'a') as out_file:
         
-        global out_file
         paw.write_like_print(out_file, timestamp)
         paw.write_like_print(out_file)
     

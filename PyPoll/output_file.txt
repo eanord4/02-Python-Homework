@@ -1,0 +1,24 @@
+2019-11-20 13:22:41.049391
+
+~~~ RESULTS ~~~
+Total votes: 3521001
+Votes by candidate...
+	Khan: 63.0% (2218231)
+	Correy: 20.0% (704200)
+	Li: 14.0% (492940)
+	O'Tooley: 3.0% (105630)
+Winner: Khan
+
+
+2019-11-20 13:53:28.200216
+
+~~~ RESULTS ~~~
+Total votes: 3521001
+Votes by candidate...
+	Khan: 63.0% (2218231)
+	Correy: 20.0% (704200)
+	Li: 14.0% (492940)
+	O'Tooley: 3.0% (105630)
+Winner: Khan
+
+
