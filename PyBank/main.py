@@ -1,6 +1,6 @@
 # Eric Nordstrom
 # November 18, 2019
-# second homework assignment for UT Data Analysis & Visualization boot camp
+# Second homework assignment for UT Data Analysis & Visualization boot camp
 # Python 3.6.4
 
 
@@ -31,7 +31,7 @@ month_indices = {
     'Dec': 12
 }
 
-month_abbreviations = {item[1]: item[0] for item in month_indices.items()}  # flips keys and values of "month_indices" dict
+month_abbreviations = {month_indices[key]: key for key in month_indices}  # flips keys and values of "month_indices" dict
 
 
 """FUNCTIONS"""
