@@ -4,17 +4,13 @@
 # Python 3.6.4
 
 
-python_challenge_path = 'C:/users/eanor.LORDSTROM/Dropbox/Documents/Education/Data Analysis & Viz Boot Camp/Homework/02-Python'  # path on my computer; replace with your path
-import csv, sys
-sys.path.insert(1, python_challenge_path)  # for next import: path on my computer; allows running from any directory
-sys.path.insert(2, '..')  # for next import: up one level if currently in PyBoss folder; allows running on any computer if in this folder
-import print_and_write as paw
-import datetime as dt
+import csv
 
 
 """DATA"""
 
-employee_data_path = 'C:/users/eanor.LORDSTROM/Dropbox/Documents/Education/Data Analysis & Viz Boot Camp/UT-MCB-DATA-PT-11-2019-U-C/Homework/02-Python/ExtraContent/Instructions/PyBoss/employee_data.csv'  # path on my computer; replace with your path
+old_data_path = 'C:/users/eanor.LORDSTROM/Dropbox/Documents/Education/Data Analysis & Viz Boot Camp/UT-MCB-DATA-PT-11-2019-U-C/Homework/02-Python/ExtraContent/Instructions/PyBoss/employee_data.csv'  # path on my computer; replace with your path
+new_data_path = 'converted_employee_data.csv'
 
 us_state_abbrev = {
     'Alabama': 'AL',
@@ -91,11 +87,30 @@ def new_row(row):
 
 def convert_employee_data(in_file_path, out_file_path):
     '''convert_employee_data(in_file_path, out_file_path) --> convert the data to the new format'''
+    
+    print('Converting...')
 
-    with open(in_file_path, 'r') as in_file, open(out_file_path, 'a') as out_file:
-        pass ###
+    try:
+        with open(in_file_path, 'r') as in_file, open(out_file_path, 'a') as out_file:
+
+            old_data = csv.reader(in_file)
+            new_data = csv.writer(out_file)
+
+            old_header = next(old_data)
+            new_header = ['Emp ID', 'First Name', 'Last Name', 'DOB', 'SSN', 'State']
+            new_data.writerow(new_header)
+
+            for row in old_data:
+                new_data.writerow(new_row(row))
+            
+        print('Successfully converted data.')
+
+    except ValueError:
+        print('Got ValueError. Original row:')  # catch row at which error occurred
+        print(row)
+
 
 """RUN"""
 
 if __name__ == '__main__':
-    
+    convert_employee_data(old_data_path, new_data_path)
