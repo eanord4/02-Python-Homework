@@ -57,7 +57,7 @@ def analyze(paragraph_file_path):
     avg_sent_len = n_word / n_sent
     avg_letter_count = n_char / n_word
 
-    print('Paragraph Analysis')
+    print('PARAGRAPH ANALYSIS')
     print('------------------')
     print('Approximate Word Count:', n_word)
     print('Approximate Sentence Count:', n_sent)
